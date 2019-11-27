@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane accessibleText="teste" alignment="CENTER" focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="225.0" prefWidth="432.0" style="-fx-background-color: #cae3e1;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.LoginAluno">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="351.0" minWidth="10.0" prefWidth="301.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="351.0" minWidth="10.0" prefWidth="301.0" />
+  </columnConstraints>
+  <rowConstraints>
+      <RowConstraints maxHeight="95.0" minHeight="10.0" prefHeight="34.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="95.0" minHeight="10.0" prefHeight="33.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="95.0" minHeight="10.0" prefHeight="29.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="139.0" minHeight="10.0" prefHeight="33.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="154.0" minHeight="10.0" prefHeight="37.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <effect>
+      <DropShadow />
+   </effect>
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="2">
+         <children>
+            <Label layoutX="29.0" layoutY="6.0" prefHeight="17.0" prefWidth="42.0" text="Login" AnchorPane.leftAnchor="29.0" AnchorPane.rightAnchor="221.0" />
+            <TextField fx:id="txtLogin" layoutX="71.0" layoutY="3.0" prefHeight="25.0" prefWidth="189.0" promptText="Digite seu Login" AnchorPane.leftAnchor="71.0" AnchorPane.rightAnchor="32.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="35.0" prefWidth="292.0" GridPane.columnSpan="2" GridPane.rowIndex="3">
+         <children>
+            <Label layoutX="30.0" layoutY="6.0" text="Senha" AnchorPane.leftAnchor="29.0" AnchorPane.rightAnchor="221.0" />
+            <TextField fx:id="txtSenha" layoutX="72.0" layoutY="3.0" prefHeight="25.0" prefWidth="189.0" promptText="DIgite sua Senha" AnchorPane.leftAnchor="71.0" AnchorPane.rightAnchor="32.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="4">
+         <children>
+            <Button fx:id="btnLogin" layoutX="30.0" layoutY="7.0" mnemonicParsing="false" onAction="#SelectDB" prefHeight="25.0" prefWidth="116.0" text="Login" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="0.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+         <children>
+            <Button fx:id="btnCadastro" layoutY="7.0" mnemonicParsing="false" onAction="#Cadastro" prefHeight="25.0" prefWidth="116.0" text="Cadastro" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="30.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="30.0" prefWidth="292.0" GridPane.columnSpan="2" GridPane.rowIndex="1">
+         <children>
+            <Label layoutX="29.0" layoutY="15.0" prefHeight="17.0" prefWidth="229.0" style="-fx-background-color: #f2f5f0;" text="Entre no Sistema" AnchorPane.leftAnchor="29.0" AnchorPane.rightAnchor="34.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="2">
+         <children>
+            <ComboBox fx:id="cmbSelectDB" onAction="#SelectDB" prefWidth="150.0" promptText="Escolha o Tipo de Usuário" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</GridPane>

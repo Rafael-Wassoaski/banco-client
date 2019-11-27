@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="537.0" prefWidth="725.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ListaController">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="382.0" minWidth="10.0" prefWidth="368.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="339.0" minWidth="10.0" prefWidth="334.0" />
+  </columnConstraints>
+  <rowConstraints>
+      <RowConstraints maxHeight="146.0" minHeight="10.0" prefHeight="25.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="146.0" minHeight="0.0" prefHeight="42.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="432.0" minHeight="10.0" prefHeight="432.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="81.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <AnchorPane prefHeight="331.0" prefWidth="371.0" GridPane.rowIndex="2">
+         <children>
+            <ListView fx:id="listProfessor" layoutX="59.0" layoutY="56.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+         <children>
+            <ListView fx:id="listAluno" layoutX="67.0" layoutY="56.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+         <children>
+            <ButtonBar layoutX="82.0" layoutY="7.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+              <buttons>
+                <Button fx:id="btnApagarProf" mnemonicParsing="false" onAction="#ApagarProfessor" text="Apagar" />
+                  <Button fx:id="btnAtualizarProf" mnemonicParsing="false" onAction="#AtualizarProfessor" text="Atualizar" />
+              </buttons>
+            </ButtonBar>
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <children>
+            <ButtonBar layoutX="82.0" layoutY="7.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <buttons>
+                  <Button fx:id="btnApagarAlu" mnemonicParsing="false" onAction="#ApagarAluno" text="Apagar" />
+                  <Button fx:id="btnAtualizarAlu" mnemonicParsing="false" onAction="#AtualizarAluno" text="Atualizar" />
+               </buttons>
+            </ButtonBar>
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <Label layoutX="18.0" layoutY="3.0" text="Lista Professores" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="211.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+         <children>
+            <Label layoutX="27.0" layoutY="3.0" text="Lista Alunos" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="211.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="3">
+         <children>
+            <Button fx:id="btnSair" layoutX="597.0" layoutY="6.0" mnemonicParsing="false" onAction="#Sair" prefHeight="25.0" prefWidth="110.0" text="Sair" AnchorPane.leftAnchor="597.0" AnchorPane.rightAnchor="14.0" />
+            <Button fx:id="btnVoltar" layoutX="35.0" layoutY="6.0" mnemonicParsing="false" onAction="#Voltar" prefHeight="25.0" prefWidth="110.0" text="Voltar" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="606.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</GridPane>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="472.0" prefWidth="653.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ControllerMainProfessor">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="609.0" minWidth="10.0" prefWidth="563.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="320.0" minWidth="10.0" prefWidth="90.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="152.0" minHeight="0.0" prefHeight="52.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="415.0" minHeight="10.0" prefHeight="415.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="1">
+         <children>
+            <TableView fx:id="tblMain" layoutX="127.0" layoutY="47.0" prefHeight="283.0" prefWidth="643.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="2.0">
+              <columns>
+                <TableColumn fx:id="colMatérias" prefWidth="75.0" text="Matérias" />
+              </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="2">
+         <children>
+            <ButtonBar layoutX="109.0" layoutY="14.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
+              <buttons>
+                  <Button fx:id="btnLista" mnemonicParsing="false" onAction="#Lista" text="Lista de Usuários" />
+                  <Button fx:id="btnChamada" mnemonicParsing="false" onAction="#Chamada" text="Chamada" />
+                <Button fx:id="btnSair" mnemonicParsing="false" onAction="#Sair" text="Sair" />
+              </buttons>
+            </ButtonBar>
+         </children>
+      </AnchorPane>
+   </children>
+</GridPane>

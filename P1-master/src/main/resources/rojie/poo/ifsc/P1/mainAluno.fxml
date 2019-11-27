@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<GridPane alignment="CENTER_LEFT" prefHeight="527.0" prefWidth="786.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ControllerMainAluno">
+  <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="280.0" minWidth="10.0" prefWidth="18.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="304.0" minWidth="10.0" prefWidth="251.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="335.0" minWidth="10.0" prefWidth="239.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="258.0" minWidth="10.0" prefWidth="258.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="173.0" minWidth="10.0" prefWidth="20.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="129.0" minHeight="0.0" prefHeight="61.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="267.0" minHeight="10.0" prefHeight="90.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="328.0" minHeight="10.0" prefHeight="128.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="460.0" minHeight="10.0" prefHeight="227.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="328.0" minHeight="0.0" prefHeight="38.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <AnchorPane nodeOrientation="LEFT_TO_RIGHT" prefHeight="67.0" prefWidth="742.0" GridPane.columnIndex="1" GridPane.columnSpan="3">
+         <children>
+            <ButtonBar fx:id="btnBar" buttonMinWidth="80.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="42.0" prefWidth="726.0" style="-fx-background-color: #a4ebbe;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <buttons>
+                <Button fx:id="btnMinhasTurmas" mnemonicParsing="false" onAction="#MinhasTurmas" text="Minhas Turmas" />
+                  <Button fx:id="btnAMatricula" mnemonicParsing="false" onAction="#Atestado" text="Atestado de Matricula" />
+                  <Button fx:id="btnMinhasTarefas" mnemonicParsing="false" onAction="#MinhasTarefas" text="Minhas Tarefas" />
+                  <Button fx:id="btnManifestacoes" mnemonicParsing="false" onAction="#Manifestacoes" text="Contato" />
+                  <Button fx:id="btnMeusDados" mnemonicParsing="false" onAction="#MeusDados" text="Sair" />
+              </buttons>
+            </ButtonBar>
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="152.0" prefWidth="600.0" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.rowIndex="1">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" text="SIGAAB" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <font>
+                  <Font name="System Bold" size="61.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="135.0" prefWidth="552.0" style="-fx-background-color: #dcc7ed;" GridPane.columnIndex="1" GridPane.rowIndex="2">
+         <children>
+            <Text layoutX="59.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Estudantes e servidores podem pedir &quot;voto em trânsito&quot; nas eleições para reitor e diretor-geral" textAlignment="CENTER" wrappingWidth="132.99999899230897" AnchorPane.leftAnchor="59.0" AnchorPane.rightAnchor="59.000001007691026">
+               <font>
+                  <Font name="System Bold Italic" size="14.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="235.0" prefWidth="211.0" style="-fx-background-color: #dcc7ed;" GridPane.columnIndex="1" GridPane.rowIndex="3">
+         <children>
+            <Text layoutX="18.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Servidores e estudantes que quiserem participar das eleições para reitor do IFSC votando fora de seu câmpus de lotação ou onde estudam podem solicitar o “voto em trânsito” até sexta-feira, 11 de outubro. Para isso, devem preencher o formulário de solicitação de voto em trânsito disponível na página das eleições e enviá-lo assinado para a comissão eleitoral local do seu câmpus de origem (veja a lista de e-mails de contato)." textAlignment="CENTER" wrappingWidth="218.00000469386578" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="14.999995306134224" AnchorPane.topAnchor="14.05078125" />
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="133.0" prefWidth="357.0" style="-fx-background-color: #cef0e7;" GridPane.columnIndex="2" GridPane.rowIndex="2">
+         <children>
+            <Text layoutX="55.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Câmpus Canoinhas desenvolve cinco novos produtos alimentícios com erva-mate" textAlignment="CENTER" wrappingWidth="142.828125" AnchorPane.leftAnchor="55.0" AnchorPane.rightAnchor="54.171875">
+               <font>
+                  <Font name="System Bold Italic" size="14.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="197.0" prefWidth="252.0" style="-fx-background-color: #cef0e7;" GridPane.columnIndex="2" GridPane.rowIndex="3">
+         <children>
+            <Text layoutX="33.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Produtos tradicionais, como doces e bolos, podem ganhar um novo sabor depois de pesquisa desenvolvida pelo IFSC. Até então usada basicamente em chimarrão, tereré e chá, a erva-mate entrou na gastronomia com status de ingrediente em cinco formulações desenvolvidas por professores e alunos da área de produção alimentícia do Câmpus Canoinhas: sorvete, geleia, bala, chocotone e petit gateau." textAlignment="CENTER" wrappingWidth="186.13671875" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="32.86328125" />
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #f2ddcb;" GridPane.columnIndex="3" GridPane.rowIndex="2">
+         <children>
+            <Text layoutX="60.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alunas ganham menção honrosa por pesquisa apresentada no Congresso Brasileiro de Genética" textAlignment="CENTER" wrappingWidth="142.82812209427357">
+               <font>
+                  <Font name="System Bold Italic" size="14.0" />
+               </font></Text>
+         </children></AnchorPane>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #f2ddcb;" GridPane.columnIndex="3" GridPane.rowIndex="3">
+         <children>
+            <Text layoutX="15.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Em setembro deste ano, foi realizado o 65º Congresso Brasileiro de Genética, em Águas de Lindóia, São Paulo, com o tema “Edição de Genes e Genomas”. O IFSC esteve presente com as alunas Ana Caroline da Silva, Camila Fernandes Carvalho e Isadora Ceratti Foletto, do último módulo do curso técnico integrado em Química do Câmpus Gaspar, com orientação do professor Hendrie Nunes, O trabalho das estudantes foi premiado com menção honrosa no Painel de Iniciação Científica na categoria Evolução." textAlignment="CENTER" wrappingWidth="236.4296875" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+         </children></AnchorPane>
+   </children>
+</GridPane>
