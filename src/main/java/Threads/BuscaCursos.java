@@ -36,6 +36,12 @@ public class BuscaCursos implements Runnable {
 					menssagem = scanner.nextLine();
 					break;
 				}
+				try {
+					Thread.currentThread().sleep(1000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 
 		} catch (IOException e) {

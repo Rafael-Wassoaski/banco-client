@@ -2,6 +2,8 @@ package Controllers;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
@@ -17,11 +19,12 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import model.InterfaceTherad;
 import rojie.poo.ifsc.P1.App;
 import rojie.poo.ifsc.P1.TarefasEspera;
 import rojie.poo.ifsc.P1.TarefasRealizadas;
 
-public class ControllerMinhasTarefas implements Initializable{
+public class ControllerMinhasTarefas implements Initializable, InterfaceTherad{
 
 	@FXML
     private TableView<TarefasEspera> tblTarefasEsper;
@@ -52,19 +55,14 @@ public class ControllerMinhasTarefas implements Initializable{
 		colAssuntoReal.setCellValueFactory(new PropertyValueFactory<>("assuntoR"));
 		colMateriaReal.setCellValueFactory(new PropertyValueFactory<>("materiaR"));
 
-		tblTarefasEsper.setItems(listaEspera());
-		tblTarefasReal.setItems(listaReal());
+
 		
 	}
-	private ObservableList<TarefasEspera> listaEspera() {
-		return FXCollections.observableArrayList(new TarefasEspera("Desenvolver Telas no JAVAFX", "Programação Orientada a Objetos"),
-				new TarefasEspera("Documentação de um Projeto",  "Gerencia de Projetos"),
-				new TarefasEspera("Desenvolver um Escalonador", "Sistemas Operacionais"));
+	private ObservableList<TarefasEspera> listaEspera(List<TarefasEspera> list) {
+		return FXCollections.observableArrayList(list);
 	}
-	private ObservableList<TarefasRealizadas> listaReal() {
-		return FXCollections.observableArrayList(new TarefasRealizadas("Criar Banco de Dados no Sqlite", "Programação Orientada a Objetos"),
-				new TarefasRealizadas("Fluxograma",  "Gerencia de Projetos"),
-				new TarefasRealizadas("Desenvolver Relógio/Cronômetro/Alarme", "Sistemas Operacionais"));
+	private ObservableList<TarefasRealizadas> listaReal(List<TarefasRealizadas> list) {
+		return FXCollections.observableArrayList(list);
 	}
 	
     @FXML
@@ -80,4 +78,24 @@ public class ControllerMinhasTarefas implements Initializable{
 		
     
     }
+	@Override
+	public void setResposta(String resposta) {
+		// TODO Auto-generated method stub
+		String[] tarefas = resposta.split("@");
+		String[] tarefasReal = tarefas[0].split("/");
+		String[] tarefasEspera = tarefas[1].split("/");
+		
+		List<TarefasRealizadas> listReal = new ArrayList<TarefasRealizadas>();
+		for(String tarefa : tarefasReal){
+			listReal.add(new TarefasRealizadas(tarefa.split("-")[0], tarefa.split("-")[1]));
+		}
+		tblTarefasReal.setItems(listaReal(listReal));
+		
+		List<TarefasEspera> listEspe = new ArrayList<TarefasEspera>();
+		for(String tarefa : tarefasReal){
+			listEspe.add(new TarefasEspera(tarefa.split("-")[0], tarefa.split("-")[1]));
+		}
+		tblTarefasEsper.setItems(listaEspera(listEspe));
+		
+	}
 }

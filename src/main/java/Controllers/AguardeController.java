@@ -18,6 +18,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
 import javafx.stage.Stage;
 import model.Curso;
+import model.InterfaceTherad;
 import rojie.poo.ifsc.P1.App;
 
 public class AguardeController implements Initializable {
@@ -27,8 +28,14 @@ public class AguardeController implements Initializable {
 	@FXML
 	Button cancelar;
 	
+	private String proxTela;
+	
+	public void setProxTela(String proxTela) {
+		this.proxTela = proxTela;
+	}
+
 	private Thread threadConexao;
-	private List<String> listCursos = new ArrayList<>();
+	private BuscaCursos clienteThread;
 	
 	public class ThreadBarra implements Runnable{
 
@@ -56,52 +63,46 @@ public class AguardeController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
+				try {
+					Thread.currentThread().sleep(1000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+	}
+	
+	public void conectar(String menssagemFora) {
 		
 		
 		
-		String menssagem = "Cursos@";
+		String menssagem = menssagemFora;
 		ThreadBarra barraThread = new ThreadBarra();
 		Thread threadBarra = new Thread(barraThread);
 		threadBarra.start();
-		BuscaCursos clienteThread = new BuscaCursos(menssagem);
+		clienteThread = new BuscaCursos(menssagem);
 		threadConexao = new Thread(clienteThread);
-		threadConexao.start();
+		threadConexao.start();	
 		
-		try {
-			Thread.currentThread().sleep(1000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		while(menssagem.equals(clienteThread.getMenssagem())) {
+			
+			System.out.println(clienteThread.getMenssagem());
 		}
-	
-		while(menssagem.equals(clienteThread.getMenssagem()));
 			threadBarra.stop();
-		
-		
 		try {
 			
-			
-			String[] resposta = clienteThread.getMenssagem().split("/");
-			for(String cursoString : resposta) {
-				String[] cursoFormatado = cursoString.split("-");
-				listCursos.add(cursoFormatado[0]+"-"+cursoFormatado[2]);
-				
-			}
-			carregarTela();
-			
-			
+			carregarTela();			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-				
 	}
 	
 	public void carregarTela() throws IOException{	
-		FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("cadastro.fxml"));
+		
+		FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(proxTela+".fxml"));
 		Parent root = (Parent) fxmlLoader.load();
-		CadastroController controller = (CadastroController)fxmlLoader.getController();
-		controller.setcmbUserCurso(listCursos);
+		InterfaceTherad controller = (InterfaceTherad)fxmlLoader.getController();
+		controller.setResposta(clienteThread.getMenssagem());
 		Stage stage = new Stage();
 		stage.setScene(new Scene(root));
 		stage.show();

@@ -13,11 +13,12 @@
 
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="org.sqlite.JDBC" />
-			<property name="dialect" value="org.hibernate.dialect.SQLiteDialect" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
 			<property name="javax.persistence.jdbc.url" value="jdbc:sqlite:db.sqlite" />
 			<property name="javax.persistence.jdbc.user" value="" />
 			<property name="javax.persistence.jdbc.password" value="" />
 			<property name="hibernate.show_sql" value="true" />
+			
 			<property name="hibernate.hbm2ddl.auto" value="update" />
 		</properties>
 

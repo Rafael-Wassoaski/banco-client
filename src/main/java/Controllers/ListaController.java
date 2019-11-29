@@ -2,10 +2,13 @@ package Controllers;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import database.AlunoDAO;
 import database.ProfessorDAO;
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,11 +20,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 import model.Aluno;
+import model.InterfaceTherad;
 import model.Professor;
 import rojie.poo.ifsc.P1.App;
 
 
-public class ListaController implements Initializable {
+public class ListaController implements Initializable, InterfaceTherad{
 	
 	@FXML
     private ListView<Professor> listProfessor;
@@ -46,8 +50,8 @@ public class ListaController implements Initializable {
  
     @Override
 	public void initialize(URL location, ResourceBundle resources) {
-    	updateListProfessor();
-    	updateListAluno();
+    	//updateListProfessor();
+    	//updateListAluno();
     	
 		
 	}
@@ -118,6 +122,36 @@ public class ListaController implements Initializable {
 		stage.close();
     
     }
+	@Override
+	public void setResposta(String resposta) {
+		// TODO Auto-generated method stub
+		
+		List<Professor> professoresList = new ArrayList<>();
+		List<Aluno> alunosList = new ArrayList<>();
+		String[] professoresAlunos = resposta.split("@");
+		String[] professores = professoresAlunos[0].split("/");
+		String[] alunos =  professoresAlunos[1].split("/");
+		for(String professor : professores) {
+			String[] professorFormatado = professor.split("-");
+			Professor professor2 = new Professor(professorFormatado[0], professorFormatado[1], professorFormatado[2], professorFormatado[3], professorFormatado[4]);
+			professoresList.add(professor2);
+			
+		}
+		
+		ObservableList<Professor> listProf = FXCollections.observableList(professoresList);
+		listProfessor.setItems(null);
+ 		listProfessor.setItems((ObservableList<Professor>) listProf);
+		for(String aluno : alunos) {
+			String[] alunorFormatado = aluno.split("-");
+			Aluno aluno2 = new Aluno(alunorFormatado[0], alunorFormatado[1], alunorFormatado[2], alunorFormatado[3], alunorFormatado[4]);
+			alunosList.add(aluno2);
+			
+		}
+		ObservableList<Aluno> listAlun = FXCollections.observableList(alunosList);
+		listAluno.setItems(null);
+ 		listAluno.setItems((ObservableList<Aluno>) listAlun);
+		
+	}
     
 
 	

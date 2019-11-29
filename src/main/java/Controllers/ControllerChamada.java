@@ -2,9 +2,12 @@ package Controllers;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import database.AlunoDAO;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,9 +20,10 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 import model.Aluno;
+import model.InterfaceTherad;
 import rojie.poo.ifsc.P1.App;
 
-public class ControllerChamada implements Initializable {
+public class ControllerChamada implements Initializable, InterfaceTherad {
     @FXML
     private ListView<Aluno> listChamada;
 
@@ -57,7 +61,23 @@ public class ControllerChamada implements Initializable {
  	}
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		updateListAluno();
+		//updateListAluno();
+		
+	}
+	@Override
+	public void setResposta(String resposta) {
+		// TODO Auto-generated method stub
+		List<Aluno>alunosList = new ArrayList<>();
+		String[] alunos = resposta.split("/");
+		for(String aluno : alunos) {
+			String[] alunorFormatado = aluno.split("-");
+			Aluno aluno2 = new Aluno(alunorFormatado[0], alunorFormatado[1], alunorFormatado[2], alunorFormatado[3], alunorFormatado[4]);
+			alunosList.add(aluno2);
+			
+		}
+		ObservableList<Aluno> listAlun = FXCollections.observableList(alunosList);
+		listChamada.setItems(null);
+		listChamada.setItems((ObservableList<Aluno>) listAlun);
 		
 	}
 

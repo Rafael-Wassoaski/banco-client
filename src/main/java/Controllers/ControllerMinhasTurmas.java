@@ -2,6 +2,8 @@ package Controllers;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
@@ -16,11 +18,12 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import model.InterfaceTherad;
 import rojie.poo.ifsc.P1.App;
 import rojie.poo.ifsc.P1.AtestadoMatricula;
 import rojie.poo.ifsc.P1.MinhasTurmas;
 
-public class ControllerMinhasTurmas implements Initializable {
+public class ControllerMinhasTurmas implements Initializable, InterfaceTherad {
 	
 	@FXML
 	private TableView<MinhasTurmas> tblTurmas;
@@ -39,16 +42,11 @@ public class ControllerMinhasTurmas implements Initializable {
 		colMaterias.setCellValueFactory(new PropertyValueFactory<>("materia"));
 		colProfessor.setCellValueFactory(new PropertyValueFactory<>("professor"));
 
-		tblTurmas.setItems(listaTurmas());
+		
 		
 	}
-	private ObservableList<MinhasTurmas> listaTurmas() {
-		return FXCollections.observableArrayList(new MinhasTurmas( "ADMINISTRAÇÃO GERAL","Jeffersson Treml"),
-				new MinhasTurmas( "GERÊNCIA DE PROJETOS", "Carlos"),
-				new MinhasTurmas( "METODOLOGIA DA PESQUISA", "Lucas Bueno"),
-				new MinhasTurmas( "PROGRAMAÇÃO ORIENTADA A OBJETOS II","Lucas Bueno"),
-				new MinhasTurmas( "PROGRAMAÇÃO PARA INTERNET I","Alexandre"),
-				new MinhasTurmas( "SISTEMAS OPERACIONAIS","Mauricio Begini"));
+	private ObservableList<MinhasTurmas> listaTurmas(List<MinhasTurmas> list) {
+		return FXCollections.observableArrayList(list);
 	
 		
 	}
@@ -61,6 +59,16 @@ public class ControllerMinhasTurmas implements Initializable {
 		stage.show();
 		stage = (Stage) btnVoltar.getScene().getWindow();
 		stage.close();
+	}
+	@Override
+	public void setResposta(String resposta) {
+		// TODO Auto-generated method stub
+		String[] turmas = resposta.split("/");
+		List<MinhasTurmas> minhasTurmas = new ArrayList<MinhasTurmas>();
+		for(String turma : turmas) {
+			minhasTurmas.add(new MinhasTurmas(turma.split("-")[0], turma.split("-")[1]));
+		}		
+		tblTurmas.setItems(listaTurmas(minhasTurmas));
 	}
 
 	
