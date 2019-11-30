@@ -92,7 +92,7 @@ public class ControllerMinhasTarefas implements Initializable, InterfaceTherad{
 		tblTarefasReal.setItems(listaReal(listReal));
 		
 		List<TarefasEspera> listEspe = new ArrayList<TarefasEspera>();
-		for(String tarefa : tarefasReal){
+		for(String tarefa : tarefasEspera){
 			listEspe.add(new TarefasEspera(tarefa.split("-")[0], tarefa.split("-")[1]));
 		}
 		tblTarefasEsper.setItems(listaEspera(listEspe));

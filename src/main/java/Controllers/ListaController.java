@@ -71,13 +71,34 @@ public class ListaController implements Initializable, InterfaceTherad{
   
 
     @FXML
-    void ApagarAluno(ActionEvent event) {
-    	
-    	new AlunoDAO().delete((Aluno) listAluno.getSelectionModel().getSelectedItem());
-    	
+    void ApagarAluno(ActionEvent event) throws IOException {
+    	String menssagem = "apagarAluno@" + listAluno.getSelectionModel().getSelectedItem().getCpf().toString();
+    	FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("Aguarde.fxml"));
+		Parent root = (Parent) fxmlLoader.load();
+		AguardeController controller = (AguardeController)fxmlLoader.getController();
+		controller.setProxTela("lista");
+		controller.conectar(menssagem);
+		Stage stage = new Stage();
+		stage.setScene(new Scene(root));
+		stage.show();
+		stage = (Stage) btnApagarAlu.getScene().getWindow();
+		stage.close();
     }
     @FXML
-    void ApagarProfessor() {
+    void ApagarProfessor() throws IOException {
+    
+    	
+    	String menssagem = "apagarProfessor@" + listAluno.getSelectionModel().getSelectedItem().getCpf().toString();
+    	FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("Aguarde.fxml"));
+		Parent root = (Parent) fxmlLoader.load();
+		AguardeController controller = (AguardeController)fxmlLoader.getController();
+		controller.setProxTela("lista");
+		controller.conectar(menssagem);
+		Stage stage = new Stage();
+		stage.setScene(new Scene(root));
+		stage.show();
+		stage = (Stage) btnApagarAlu.getScene().getWindow();
+		stage.close();
     	new ProfessorDAO().delete((Professor) listProfessor.getSelectionModel().getSelectedItem());
     }
 

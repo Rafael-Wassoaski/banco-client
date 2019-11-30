@@ -58,25 +58,29 @@ public class UpdateController implements Initializable {
 	}
 
 	@FXML
-	private void update(ActionEvent e) {
+	private void update(ActionEvent e) throws IOException {
+		String menssagem;
 		if (cmbveri.getValue().equals("Aluno")) {
-			Aluno aluno = new Aluno(txtCpf.getText(), txtNome.getText(), txtCurso.getText(), txtNewLogin.getText(),
-					txtNewSenha.getText());
-			new AlunoDAO().update(aluno);
-			Scene scene = btnAtualizar.getScene();
-			Stage stage = (Stage) scene.getWindow();
-			listController.updateListAluno();
-			stage.close();
+			
+			menssagem = "updateAluno@" + txtCpf.getText().toString() + "-"  + txtCurso.getText().toString() + "-" + txtNewLogin.getText().toString()+"-"+
+					txtNewSenha.getText().toString();
+	
 			
 		} else {
-			Professor professor = new Professor(txtCpf.getText(), txtNome.getText(), txtCurso.getText(),
-					txtNewLogin.getText(), txtNewSenha.getText());
-			new ProfessorDAO().update(professor);
-			Scene scene = btnAtualizar.getScene();
-			Stage stage = (Stage) scene.getWindow();
-			listControlle.updateListProfessor();
-			stage.close();
+			menssagem = "updateProfessor@" + txtCpf.getText().toString() + "-"  + txtCurso.getText().toString() + "-" + txtNewLogin.getText().toString()+"-"+
+					txtNewSenha.getText().toString();
 		}
+		
+		FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("Aguarde.fxml"));
+		Parent root = (Parent) fxmlLoader.load();
+		AguardeController controller = (AguardeController)fxmlLoader.getController();
+		controller.setProxTela("lista");
+		controller.conectar(menssagem);
+		Stage stage = new Stage();
+		stage.setScene(new Scene(root));
+		stage.show();
+		stage = (Stage) btnAtualizar.getScene().getWindow();
+		stage.close();
 	}	
 	public void selectedProfessor(Professor professor, ListaController listaControlle) {
 		txtCpf.setText(professor.getCpf());

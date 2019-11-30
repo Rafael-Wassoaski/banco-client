@@ -5,13 +5,15 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Scanner;
 
-public class BuscaCursos implements Runnable {
+import database.Main;
+
+public class ConexaoServer implements Runnable {
 
 	
 	private String menssagem;
 	
 	
-	public BuscaCursos(String menssagem) {
+	public ConexaoServer(String menssagem) {
 		super();
 		this.menssagem = menssagem;
 	}
@@ -28,6 +30,7 @@ public class BuscaCursos implements Runnable {
 		try {
 			Socket socket = new Socket("localhost", 5678);
 			PrintWriter print = new PrintWriter(socket.getOutputStream(), true);
+			
 			print.println(menssagem);
 			Scanner scanner = new Scanner(socket.getInputStream());
 			

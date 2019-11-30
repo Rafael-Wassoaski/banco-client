@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import Threads.BuscaCursos;
+import Threads.ConexaoServer;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -35,7 +35,7 @@ public class AguardeController implements Initializable {
 	}
 
 	private Thread threadConexao;
-	private BuscaCursos clienteThread;
+	private ConexaoServer clienteThread;
 	
 	public class ThreadBarra implements Runnable{
 
@@ -79,7 +79,7 @@ public class AguardeController implements Initializable {
 		ThreadBarra barraThread = new ThreadBarra();
 		Thread threadBarra = new Thread(barraThread);
 		threadBarra.start();
-		clienteThread = new BuscaCursos(menssagem);
+		clienteThread = new ConexaoServer(menssagem);
 		threadConexao = new Thread(clienteThread);
 		threadConexao.start();	
 		

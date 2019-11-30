@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import database.AlunoDAO;
+import database.Main;
 import database.ProfessorDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -25,6 +26,7 @@ import model.Professor;
 import rojie.poo.ifsc.P1.App;
 
 public class LoginAluno implements Initializable {
+	
 
 	@FXML
 	private TextField txtLogin;
@@ -78,6 +80,7 @@ public class LoginAluno implements Initializable {
 		AguardeController controller = (AguardeController)fxmlLoader.getController();
 		controller.setProxTela("mainAluno");
 		controller.conectar("Login-Aluno@"+txtLogin.getText().toString()+"-"+txtSenha.getText().toString());
+		Main.alunoLogin.setLogin(txtLogin.getText().toString());
 		Stage stage = new Stage();
 		stage.setScene(new Scene(root));
 		stage.show();
@@ -94,6 +97,7 @@ public class LoginAluno implements Initializable {
 		AguardeController controller = (AguardeController)fxmlLoader.getController();
 		controller.setProxTela("mainProfessor");
 		controller.conectar("Login-Professor@"+txtLogin.getText().toString()+"-"+txtSenha.getText().toString());
+		Main.professorLogin.setLogin(txtLogin.getText().toString());
 		Stage stage = new Stage();
 		stage.setScene(new Scene(root));
 		stage.show();
